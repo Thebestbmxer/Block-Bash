@@ -24,6 +24,11 @@ protected:
 	/** Called for side to side input */
 	void MoveRight(float Val);
 
+	/** Called for down input */
+	void Duck();
+	//void DuckCount();
+	void MoveDetected();
+
 	/** Handle touch inputs. */
 	void TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location);
 
@@ -42,4 +47,8 @@ public:
 	FORCEINLINE class UCameraComponent* GetSideViewCameraComponent() const { return SideViewCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+private:
+	bool bIsDucking = false;
+	bool bPreviouslyDucking = false;
 };
